@@ -134,11 +134,11 @@ categoryNav.innerHTML = categories
 
 const productImages: Record<string, string> = {
   // Antojitos: cada tarjeta usa un primer plano del platillo que nombra.
-  'tostadas': 'https://static.wixstatic.com/media/72849d_68fb19a627394701a6f4d6bcd6c917e4~mv2.jpg/v1/fit/w_500%2Ch_500%2Cq_90/file.jpg',
-  'garnachas': 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Closeup_garnachas_en_rinconada.jpg',
+  'tostadas': '/resources/foto-tostadas.jpg',
+  'garnachas': '/resources/foto-garnachas.jpg',
   'tacos-dorados': 'https://www.thedailymeal.com/img/gallery/tacos-dorados-are-the-perfect-way-to-spice-up-your-next-taco-night/l-intro-1673097822.jpg',
   'dobladas': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'enchiladas': 'https://storage.googleapis.com/48877118-7272-4a4d-b302-0465d8aa4548/6e772eab-7376-4ba6-877d-c349ce710482/3b41f735-ce70-461e-a277-2c6c7b6b33dc.jpg',
+  'enchiladas': '/resources/foto-enchiladas.jpg',
   'platanos': 'https://img0.didiglobal.com/static/soda_public/img_37c37b42b58c865e60b0dd807a40f729.png',
   'huarache': 'https://cdn7.kiwilimon.com/recetaimagen/37040/640x640/46480.jpg.jpg',
   'huarache-mixto': 'https://cdn7.kiwilimon.com/recetaimagen/37040/640x640/46480.jpg.jpg',
@@ -151,7 +151,7 @@ const productImages: Record<string, string> = {
   'emp-deshebrada': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
   'emp-tinga-pollo': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
   'emp-tinga-res': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
-  'ques-chicharron': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
+  'ques-chicharron': '/resources/foto-quesadilla.jpg',
   'ques-barbacoa': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
   'ques-tinga-res': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
   'ques-tinga-pollo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
@@ -163,7 +163,7 @@ const productImages: Record<string, string> = {
   'ques-asada-quesillo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
   'ques-pastor': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
   'ques-pastor-quesillo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'torta-asada': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
+  'torta-asada': '/resources/foto-torta.jpg',
   'torta-barbacoa': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
   'torta-chorizo': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
   'torta-pollo': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
@@ -172,7 +172,7 @@ const productImages: Record<string, string> = {
   'torta-carnes-frias': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
 
   // Barbacoa: taco y tostada tienen fotos diferentes.
-  'tacos-barbacoa': 'https://img0.didiglobal.com/static/soda_public/img_7b12cee8d2d3755611ca778b25878b8f.jpeg',
+  'tacos-barbacoa': '/resources/foto-tacos-barbacoa.jpg',
   'tostadas-barbacoa': 'https://static.wixstatic.com/media/72849d_68fb19a627394701a6f4d6bcd6c917e4~mv2.jpg/v1/fit/w_500%2Ch_500%2Cq_90/file.jpg',
 
   // Postres con fotografía propia por tipo.
