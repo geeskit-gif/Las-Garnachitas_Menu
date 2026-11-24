@@ -250,7 +250,7 @@ function renderProducts() {
     <article class="product-card">
       <div class="product-photo-wrap ${isUniquePhoto ? '' : 'photo-pending'}">
         ${isUniquePhoto
-          ? `<img class="product-photo" src="${photoUrl}" alt="Fotografía ilustrativa de ${item.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.product-photo-wrap').classList.add('photo-pending');this.remove()"><span class="photo-caption">FOTOGRAFÍA ILUSTRATIVA</span>`
+          ? `<img class="product-photo" src="${photoUrl}" alt="Fotografía ilustrativa de ${item.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('photo-pending');this.nextElementSibling.textContent='FOTO PROPIA EN PREPARACIÓN';this.nextElementSibling.classList.add('photo-pending-label');this.remove()"><span class="photo-caption">FOTOGRAFÍA ILUSTRATIVA</span>`
           : `<span class="photo-pending-label">FOTO PROPIA<br><strong>EN PREPARACIÓN</strong></span>`}
       </div>
       <div class="product-top"><span class="product-number">${String(menu.indexOf(item) + 1).padStart(2, '0')}</span><span class="product-category">${item.category}</span></div>
