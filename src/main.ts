@@ -62,14 +62,16 @@ const menu: MenuItem[] = [
   { id: 'helado-chocomilk', name: 'Helado de Chocomilk', category: 'Helados', price: 13 },
   { id: 'helado-cacahuate', name: 'Helado de cacahuate', category: 'Helados', price: 13 },
 
-  { id: 'boing', name: 'Boing de cajita', category: 'Bebidas', price: 16 },
+  { id: 'boing-cajita', name: 'Boing de cajita', category: 'Bebidas', price: 16 },
+  { id: 'boing-cristal', name: 'Boing de botella de cristal', category: 'Bebidas', price: 35 },
   { id: 'agua-500', name: 'Agua 500 ml', category: 'Bebidas', price: 20 },
   { id: 'cristal', name: 'Agua Cristal', category: 'Bebidas', price: 25 },
   { id: 'agua-1l', name: 'Agua 1 Lt', category: 'Bebidas', price: 30 },
-  { id: 'coca', name: 'Coca-Cola', category: 'Bebidas', price: 35 },
-  { id: 'coca-desechable', name: 'Coca-Cola desechable', category: 'Bebidas', price: 35 },
-  { id: 'fanta', name: 'Fanta', category: 'Bebidas', price: 35 },
-  { id: 'mundet', name: 'Mundet', category: 'Bebidas', price: 35 },
+  { id: 'coca-cristal', name: 'Coca-Cola de cristal', category: 'Bebidas', price: 35 },
+  { id: 'coca-plastico', name: 'Coca-Cola de plástico', category: 'Bebidas', price: 35 },
+  { id: 'fanta-cristal', name: 'Fanta de cristal', category: 'Bebidas', price: 35 },
+  { id: 'fanta-plastico', name: 'Fanta de plástico', category: 'Bebidas', price: 35 },
+  { id: 'mundet-cristal', name: 'Mundet de cristal', category: 'Bebidas', price: 35 },
   { id: 'mineral', name: 'Agua mineral', category: 'Bebidas', price: 35 },
   { id: 'jugo', name: 'Jugo del Valle', category: 'Bebidas', price: 35 },
 
@@ -189,14 +191,21 @@ const productImages: Record<string, string> = {
   'helado-galleta': 'https://img.mesa247.pe/archivos/platos/lart-helado-artesanal/peanut-caramel.jpg',
   'helado-chocomilk': 'https://img.mesa247.pe/archivos/platos/lart-helado-artesanal/peanut-caramel.jpg',
   'helado-cacahuate': 'https://img.mesa247.pe/archivos/platos/lart-helado-artesanal/peanut-caramel.jpg',
-  'boing': 'https://i5-mx.walmartimages.com/mg/gm/3pp/asr/bf3d796e-a1a4-4c4a-856d-fe58eff5f99a.5d7448acec4b8030be906ad8ca48d51d.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612',
+  'boing-cajita': 'https://i5-mx.walmartimages.com/mg/gm/3pp/asr/bf3d796e-a1a4-4c4a-856d-fe58eff5f99a.5d7448acec4b8030be906ad8ca48d51d.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612',
+  // Las siete presentaciones de refrescos esperan sus fotografías individuales finales.
+  'boing-cristal': '',
+  'coca-cristal': '',
+  'coca-plastico': '',
+  'fanta-cristal': '',
+  'fanta-plastico': '',
+  'mundet-cristal': '',
   'agua-500': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
   'cristal': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
   'agua-1l': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
-  'coca': 'https://assets3.cbsnewsstatic.com/hub/i/r/2025/07/22/b3bc0c59-40cd-495a-b36b-3b25d1df4605/thumbnail/1240x826/f12ddfd83f61d4352a387d4d224e52df/gettyimages-2225644472.jpg',
-  'coca-desechable': 'https://assets3.cbsnewsstatic.com/hub/i/r/2025/07/22/b3bc0c59-40cd-495a-b36b-3b25d1df4605/thumbnail/1240x826/f12ddfd83f61d4352a387d4d224e52df/gettyimages-2225644472.jpg',
-  'fanta': 'https://storage.googleapis.com/takeapp/media/cm7biewc5000103l5cv52ghem.jpg',
-  'mundet': 'https://storage.googleapis.com/takeapp/media/cm7biewc5000103l5cv52ghem.jpg',
+
+
+
+
   'mineral': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
   'jugo': 'https://i5-mx.walmartimages.com/mg/gm/3pp/asr/bf3d796e-a1a4-4c4a-856d-fe58eff5f99a.5d7448acec4b8030be906ad8ca48d51d.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612',
   'jamaica-500': 'https://static.wixstatic.com/media/ee509a_011443789c7c4b48aa170cc24cf87e16~mv2.jpg/v1/fill/w_716%2Ch_660%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/ee509a_011443789c7c4b48aa170cc24cf87e16~mv2.jpg',
