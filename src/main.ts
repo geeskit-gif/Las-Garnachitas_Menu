@@ -132,7 +132,7 @@ categoryNav.innerHTML = categories
   .join('');
 
 const categoryImages: Record<string, { image?: string; kicker: string; description: string }> = {
-  'Antojitos': { image: '/resources/memelas.jpg', kicker: 'SABORES DE LA CASA', description: 'Los antojitos que hacen especial cada visita.' },
+  'Antojitos': { image: '/resources/foto-garnachas.jpg', kicker: 'SABORES DE LA CASA', description: 'Los antojitos que hacen especial cada visita.' },
   'Empanadas': { image: '/resources/empanadas.jpg', kicker: 'RECIÉN PREPARADAS', description: 'Elige tu relleno favorito.' },
   'Quesadillas': { image: '/resources/foto-quesadilla.jpg', kicker: 'A TU GUSTO', description: 'Una quesadilla, muchas formas de disfrutarla.' },
   'Tortas': { image: '/resources/foto-torta.jpg', kicker: 'PARA UN ANTOJO COMPLETO', description: 'Elige tu combinación favorita.' },
