@@ -138,7 +138,8 @@ const categoryImages: Record<string, { image?: string; kicker: string; descripti
   'Tortas': { image: '/resources/foto-torta.jpg', kicker: 'PARA UN ANTOJO COMPLETO', description: 'Elige tu combinación favorita.' },
   'Postres': { image: '/resources/flan.jpg', kicker: 'UN TOQUE DULCE', description: 'El cierre perfecto para tu comida.' },
   'Helados': { image: '/resources/bolis-helados.jpg', kicker: 'ALGO FRESCO', description: 'Elige tu sabor favorito.' },
-  'Bebidas': { image: '/resources/boing-fresa-354ml.jpg', kicker: 'PARA ACOMPAÑAR', description: 'Encuentra algo rico para tomar.' },
+  'Bebidas': { image: '/resources/Bebidas.jpg', kicker: 'PARA ACOMPAÑAR', description: 'Encuentra algo rico para tomar.' },
+  'Tacos y tostadas de barbacoa': { image: '/resources/Tacos Barbacoa.jpg', kicker: 'SABOR TRADICIONAL', description: 'Barbacoa para disfrutar en tacos o tostadas.' },
   'Aguas naturales': { image: '/resources/aguas-frescas.jpg', kicker: 'FRESCAS Y NATURALES', description: 'Jamaica y horchata, en el tamaño que prefieras.' },
   'Bebidas calientes': { image: '/resources/cafe-con-leche.jpg', kicker: 'UNA PAUSA CALIENTITA', description: 'Café para acompañar tu momento.' }
 };
