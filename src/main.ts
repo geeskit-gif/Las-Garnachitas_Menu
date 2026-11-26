@@ -46,7 +46,7 @@ const menu: MenuItem[] = [
   { id: 'torta-especial', name: 'Torta especial', category: 'Tortas', price: 80, note: 'Frijol, asada, chorizo, quesillo, tomate, cebolla, lechuga y aguacate' },
   { id: 'torta-carnes-frias', name: 'Torta de carnes frías', category: 'Tortas', price: 80, note: 'Tocino, salchicha, jamón, chorizo y queso amarillo' },
 
-  { id: 'tacos-barbacoa', name: 'Tacos de barbacoa (3 piezas)', category: 'Tacos y tostadas de barbacoa', price: 55, note: 'Cebolla, cilantro y aguacate' },
+  { id: 'tacos-barbacoa', name: 'Tacos de barbacoa (3 piezas)', category: 'Antojitos', price: 55, note: 'Cebolla, cilantro y aguacate' },
   { id: 'tostadas-barbacoa', name: 'Tostadas de barbacoa (3 piezas)', category: 'Tacos y tostadas de barbacoa', price: 55, note: 'Lechuga, cebolla, cilantro y aguacate' },
 
   { id: 'flan-vaso', name: 'Flan de vaso', category: 'Postres', price: 30 },
@@ -121,11 +121,8 @@ app.innerHTML = `
   <footer><span>LAS GARNACHITAS</span><span>MENÚ DIGITAL · DEMO</span></footer>
 `;
 
-const categories = [
-  'Todos',
-  ...Array.from(new Set(menu.map(item => item.category))),
-];
-let activeCategory = 'Todos';
+const categories = Array.from(new Set(menu.map(item => item.category)));
+let activeCategory = categories[0];
 const categoryNav = document.querySelector<HTMLElement>('#categories')!;
 categoryNav.innerHTML = categories
   .map(
@@ -139,78 +136,51 @@ const categoryImages: Record<string, { image?: string; kicker: string; descripti
   'Empanadas': { image: '/resources/empanadas.jpg', kicker: 'RECIÉN PREPARADAS', description: 'Elige tu relleno favorito.' },
   'Quesadillas': { image: '/resources/foto-quesadilla.jpg', kicker: 'A TU GUSTO', description: 'Una quesadilla, muchas formas de disfrutarla.' },
   'Tortas': { image: '/resources/foto-torta.jpg', kicker: 'PARA UN ANTOJO COMPLETO', description: 'Elige tu combinación favorita.' },
-  'Tacos y tostadas de barbacoa': { image: '/resources/foto-tacos-barbacoa.jpg', kicker: 'ESPECIALIDAD', description: 'Barbacoa para disfrutar en tacos o tostadas.' },
   'Postres': { image: '/resources/flan.jpg', kicker: 'UN TOQUE DULCE', description: 'El cierre perfecto para tu comida.' },
   'Helados': { kicker: 'ALGO FRESCO', description: 'Elige tu sabor favorito.' },
   'Bebidas': { image: '/resources/boing-fresa-354ml.jpg', kicker: 'PARA ACOMPAÑAR', description: 'Encuentra algo rico para tomar.' },
   'Aguas naturales': { image: '/resources/aguas-frescas.jpg', kicker: 'FRESCAS Y NATURALES', description: 'Jamaica y horchata, en el tamaño que prefieras.' },
   'Bebidas calientes': { image: '/resources/cafe-con-leche.jpg', kicker: 'UNA PAUSA CALIENTITA', description: 'Café para acompañar tu momento.' }
 };
-const productImages: Record<string, string> = {
-  'tostadas': '/resources/foto-tostadas.jpg',
-  'garnachas': '/resources/foto-garnachas.jpg',
-  'tacos-dorados': '/resources/tacos-dorados.jpg',
-  'dobladas': '/resources/dobladas.jpg',
-  'enchiladas': '/resources/foto-enchiladas.jpg',
-  'platanos': '/resources/platanos-fritos.jpg',
-  'memelas': '/resources/memelas.jpg',
-  'emp-picadillo': '/resources/empanadas.jpg',
-  'ques-chicharron': '/resources/foto-quesadilla.jpg',
-  'torta-asada': '/resources/foto-torta.jpg',
-  'tacos-barbacoa': '/resources/foto-tacos-barbacoa.jpg',
-  'flan-vaso': '/resources/flan.jpg',
-  'gelatina-mosaico': '/resources/gelatina-mosaico.jpg',
-  'boing-cajita': '/resources/boing-fresa-354ml.jpg',
-  'jamaica-500': '/resources/aguas-frescas.jpg',
-  'cafe': '/resources/cafe-negro.jpg',
-  'cafe-leche': '/resources/cafe-con-leche.jpg'
-};
-const pageCategories = categories.filter(category => category !== 'Todos');
+const pageCategories = categories;
 function updatePageIndicator() {
-  const current = activeCategory === 'Todos' ? 0 : pageCategories.indexOf(activeCategory) + 1;
+  const current = pageCategories.indexOf(activeCategory);
   document.querySelector<HTMLElement>('#page-indicator')!.textContent =
-    `${String(current + 1).padStart(2, '0')} / ${String(pageCategories.length + 1).padStart(2, '0')}`;
+    `${String(current + 1).padStart(2, '0')} / ${String(pageCategories.length).padStart(2, '0')}`;
   document.querySelector<HTMLButtonElement>('#page-prev')!.disabled = current === 0;
-  document.querySelector<HTMLButtonElement>('#page-next')!.disabled = current === pageCategories.length;
+  document.querySelector<HTMLButtonElement>('#page-next')!.disabled = current === pageCategories.length - 1;
 }
 function turnToCategory(category: string) {
-  const grid = document.querySelector<HTMLElement>('#page-stage')!;
-  const currentIndex = activeCategory === 'Todos' ? -1 : pageCategories.indexOf(activeCategory);
-  const nextIndex = category === 'Todos' ? -1 : pageCategories.indexOf(category);
-  const direction = nextIndex >= currentIndex ? 'forward' : 'backward';
-  grid.classList.remove('page-enter', 'slide-forward', 'slide-backward');
-  grid.classList.add('page-leave', direction === 'forward' ? 'slide-forward' : 'slide-backward');
+  if (category === activeCategory || !pageCategories.includes(category)) return;
+  const stage = document.querySelector<HTMLElement>('#page-stage')!;
+  const currentIndex = pageCategories.indexOf(activeCategory);
+  const nextIndex = pageCategories.indexOf(category);
+  const direction = nextIndex > currentIndex ? 'forward' : 'backward';
+  stage.classList.remove('page-enter', 'slide-forward', 'slide-backward');
+  stage.classList.add('page-leave', direction === 'forward' ? 'slide-forward' : 'slide-backward');
   window.setTimeout(() => {
     activeCategory = category;
     categoryNav.querySelectorAll<HTMLButtonElement>('.category-chip').forEach(chip =>
       chip.classList.toggle('selected', chip.dataset.category === category)
     );
     renderProducts();
-    grid.classList.remove('page-leave');
-    grid.classList.add('page-enter', direction === 'forward' ? 'slide-forward' : 'slide-backward');
-    window.setTimeout(() => grid.classList.remove('page-enter', 'slide-forward', 'slide-backward'), 420);
+    stage.classList.remove('page-leave');
+    stage.classList.add('page-enter', direction === 'forward' ? 'slide-forward' : 'slide-backward');
+    window.setTimeout(() => stage.classList.remove('page-enter', 'slide-forward', 'slide-backward'), 420);
   }, 160);
 }
 function renderProducts() {
-  const shown = activeCategory === 'Todos'
-    ? menu
-    : menu.filter(item => item.category === activeCategory);
+  const shown = menu.filter(item => item.category === activeCategory);
   const feature = document.querySelector<HTMLElement>('#category-feature')!;
-  if (activeCategory === 'Todos') {
-    feature.innerHTML = '';
-    feature.hidden = true;
-  } else {
-    const visual = categoryImages[activeCategory];
-    feature.hidden = false;
-    feature.innerHTML = visual
-      ? `<div class="category-feature-image"><img src="${visual.image ?? ''}" alt="${activeCategory}" loading="lazy"></div>
-         <div class="category-feature-copy"><p class="eyebrow">${visual.kicker}</p><h3>${activeCategory}</h3><p>${visual.description}</p><span class="category-feature-count">${shown.length} opciones</span></div>`
-      : `<div class="category-feature-copy category-feature-copy-only"><p class="eyebrow">${visual?.kicker ?? 'HECHO AL MOMENTO'}</p><h3>${activeCategory}</h3><p>${visual?.description ?? 'Explora nuestras opciones.'}</p><span class="category-feature-count">${shown.length} opciones</span></div>`;
-  }
+  const visual = categoryImages[activeCategory];
+  feature.hidden = false;
+  feature.innerHTML = visual?.image
+    ? `<div class="category-feature-image"><img src="${visual.image}" alt="${activeCategory}" loading="eager"></div>
+       <div class="category-feature-copy"><p class="eyebrow">${visual.kicker}</p><h3>${activeCategory}</h3><p>${visual.description}</p><span class="category-feature-count">${shown.length} opciones</span></div>`
+    : `<div class="category-feature-copy category-feature-copy-only"><p class="eyebrow">${visual?.kicker ?? 'HECHO AL MOMENTO'}</p><h3>${activeCategory}</h3><p>${visual?.description ?? 'Explora nuestras opciones.'}</p><span class="category-feature-count">${shown.length} opciones</span></div>`;
   document.querySelector<HTMLElement>('#products')!.innerHTML = shown
     .map(item => `
       <article class="product-card">
-        ${productImages[item.id] ? `<div class="product-photo-wrap"><img class="product-photo" src="${productImages[item.id]}" alt="${item.name}" loading="lazy"></div>` : ''}
         <div class="product-top"><span class="product-number">${String(menu.indexOf(item) + 1).padStart(2, '0')}</span><span class="product-category">${item.category}</span></div>
         <div class="product-info"><h3>${item.name}</h3><p class="product-note">${item.note ?? 'Preparado al momento.'}</p></div>
         <div class="product-bottom"><strong>${money(item.price)}</strong><button type="button" class="add-button" data-add="${item.id}" aria-label="Agregar ${item.name}">＋ <span>Agregar</span></button></div>
@@ -281,15 +251,15 @@ categoryNav.addEventListener('click', event => {
     '[data-category]'
   );
   if (!button) return;
-  turnToCategory(button.dataset.category || 'Todos');
+  turnToCategory(button.dataset.category || categories[0]);
 });
 document.querySelector<HTMLButtonElement>('#page-prev')!.addEventListener('click', () => {
-  const current = activeCategory === 'Todos' ? -1 : pageCategories.indexOf(activeCategory);
-  turnToCategory(current <= 0 ? 'Todos' : pageCategories[current - 1]);
+  const current = pageCategories.indexOf(activeCategory);
+  if (current > 0) turnToCategory(pageCategories[current - 1]);
 });
 document.querySelector<HTMLButtonElement>('#page-next')!.addEventListener('click', () => {
-  const current = activeCategory === 'Todos' ? -1 : pageCategories.indexOf(activeCategory);
-  turnToCategory(current >= pageCategories.length - 1 ? 'Todos' : pageCategories[current + 1]);
+  const current = pageCategories.indexOf(activeCategory);
+  if (current < pageCategories.length - 1) turnToCategory(pageCategories[current + 1]);
 });
 let swipeStartX = 0;
 document.querySelector<HTMLElement>('#page-stage')!.addEventListener('touchstart', event => {
@@ -298,9 +268,9 @@ document.querySelector<HTMLElement>('#page-stage')!.addEventListener('touchstart
 document.querySelector<HTMLElement>('#page-stage')!.addEventListener('touchend', event => {
   const delta = event.changedTouches[0].screenX - swipeStartX;
   if (Math.abs(delta) < 65) return;
-  const current = activeCategory === 'Todos' ? -1 : pageCategories.indexOf(activeCategory);
+  const current = pageCategories.indexOf(activeCategory);
   if (delta < 0 && current < pageCategories.length - 1) turnToCategory(pageCategories[current + 1]);
-  if (delta > 0 && current >= 0) turnToCategory(current === 0 ? 'Todos' : pageCategories[current - 1]);
+  if (delta > 0 && current > 0) turnToCategory(pageCategories[current - 1]);
 }, { passive: true });
 document
   .querySelector<HTMLElement>('#products')!
