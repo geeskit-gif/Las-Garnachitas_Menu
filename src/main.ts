@@ -106,7 +106,7 @@ app.innerHTML = `
   <div class="demo-banner"><span class="demo-dot"></span><div><strong>MENÚ ACTUALIZADO</strong><small>Arma tu pedido y envíalo directamente por WhatsApp.</small></div></div>
   <nav class="category-nav" id="categories" aria-label="Categorías del menú"></nav>
   <main class="layout" id="menu">
-    <section class="menu-area"><div class="section-heading"><div><p class="eyebrow">ELIGE TUS FAVORITOS</p><h2>Menú <span>digital</span></h2></div><span class="menu-count">PARA LLEVAR</span></div><div class="page-controls"><button type="button" id="page-prev" aria-label="Página anterior">‹</button><span id="page-indicator">01 / 09</span><button type="button" id="page-next" aria-label="Página siguiente">›</button></div><div class="product-grid" id="products"></div></section>
+    <section class="menu-area"><div class="section-heading"><div><p class="eyebrow">ELIGE TUS FAVORITOS</p><h2>Menú <span>digital</span></h2></div><span class="menu-count">PARA LLEVAR</span></div><div class="page-controls"><button type="button" id="page-prev" aria-label="Página anterior">‹</button><span id="page-indicator">01 / 09</span><button type="button" id="page-next" aria-label="Página siguiente">›</button></div><div class="category-feature" id="category-feature" hidden></div><div class="product-grid" id="products"></div></section>
     <aside class="cart-panel" id="pedido">
       <div class="cart-head"><div><p class="eyebrow">TU PEDIDO</p><h2>Resumen</h2></div><span class="cart-count" id="cart-count">0</span></div>
       <div id="cart-items" class="cart-items"><div class="empty-cart"><span>＋</span><strong>Tu pedido empieza aquí</strong><p>Agrega productos del menú para calcular el total.</p></div></div>
