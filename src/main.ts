@@ -134,91 +134,18 @@ categoryNav.innerHTML = categories
   )
   .join('');
 
-const productImages: Record<string, string> = {
-  // Antojitos: cada tarjeta usa un primer plano del platillo que nombra.
-  'tostadas': '/resources/foto-tostadas.jpg',
-  'garnachas': '/resources/foto-garnachas.jpg',
-  'tacos-dorados': '/resources/tacos-dorados.jpg',
-  'dobladas': '/resources/dobladas.jpg',
-  'enchiladas': '/resources/foto-enchiladas.jpg',
-  'platanos': '/resources/platanos-fritos.jpg',
-  'huarache': 'https://cdn7.kiwilimon.com/recetaimagen/37040/640x640/46480.jpg.jpg',
-  'huarache-mixto': 'https://cdn7.kiwilimon.com/recetaimagen/37040/640x640/46480.jpg.jpg',
-  'memelas': '/resources/memelas.jpg',
-
-  // Empanadas, quesadillas y tortas.
-  'emp-picadillo': '/resources/empanadas.jpg',
-  'emp-quesillo': '/resources/empanadas.jpg',
-  'emp-pollo': '/resources/empanadas.jpg',
-  'emp-deshebrada': '/resources/empanadas.jpg',
-  'emp-tinga-pollo': '/resources/empanadas.jpg',
-  'emp-tinga-res': '/resources/empanadas.jpg',
-  'ques-chicharron': '/resources/foto-quesadilla.jpg',
-  'ques-barbacoa': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-tinga-res': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-tinga-pollo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-deshebrada': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-champinones': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-chorizo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-rajas-pollo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-asada': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-asada-quesillo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-pastor': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'ques-pastor-quesillo': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
-  'torta-asada': '/resources/foto-torta.jpg',
-  'torta-barbacoa': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
-  'torta-chorizo': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
-  'torta-pollo': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
-  'torta-pastor': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
-  'torta-especial': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
-  'torta-carnes-frias': 'https://img0.didiglobal.com/static/soda_public/img_2ee8707a46dab183e2599e7134065fbf.jpg',
-
-  // Barbacoa: taco y tostada tienen fotos diferentes.
-  'tacos-barbacoa': '/resources/foto-tacos-barbacoa.jpg',
-  'tostadas-barbacoa': 'https://static.wixstatic.com/media/72849d_68fb19a627394701a6f4d6bcd6c917e4~mv2.jpg/v1/fit/w_500%2Ch_500%2Cq_90/file.jpg',
-
-  // Postres con fotografía propia por tipo.
-  'flan-vaso': '/resources/flan.jpg',
-  'gelatinas': 'https://1.bp.blogspot.com/-UXI3Eyt04ZY/T-im6GXIOWI/AAAAAAAAC9U/V2lYHPwY7MU/s1600/fantasia-de-colores.jpg',
-  'budin': 'https://food.cld.sndimg.com/image/upload/w_2400/v1/fn_core_images/food/plus/fullset/2021/04/13/0/FNKLIve_Santos-Loo_Budin-de-Pan-con-Caramelo-2_s4x3.jpg',
-  'pay-queso': 'https://cdn.apartmenttherapy.info/image/upload/f_jpg%2Cq_auto%3Aeco%2Cc_fill%2Cg_auto%2Cw_1500%2Car_1%3A1/k%2Frecipes%2F2023%2F2023-12-pay-de-queso%2Fpay-de-queso-5',
-  'flan-napolitano': '/resources/flan.jpg',
-  'cheesecake-oreo': 'https://img0.didiglobal.com/static/soda_public/img_9e1dd3bc34a6d130492bc95725a77969.jpg',
-  'gelatina-mosaico': '/resources/gelatina-mosaico.jpg',
-  'chocoflan': 'https://i.pinimg.com/originals/9c/3a/bd/9c3abd37b89589e7909a1390adc9f8f1.jpg',
-
-  // Helados y bebidas.
-  'helado-galleta': 'https://img.mesa247.pe/archivos/platos/lart-helado-artesanal/peanut-caramel.jpg',
-  'helado-chocomilk': 'https://img.mesa247.pe/archivos/platos/lart-helado-artesanal/peanut-caramel.jpg',
-  'helado-cacahuate': 'https://img.mesa247.pe/archivos/platos/lart-helado-artesanal/peanut-caramel.jpg',
-  'boing-cajita': 'https://i5-mx.walmartimages.com/mg/gm/3pp/asr/bf3d796e-a1a4-4c4a-856d-fe58eff5f99a.5d7448acec4b8030be906ad8ca48d51d.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612',
-  // Las siete presentaciones de refrescos esperan sus fotografías individuales finales.
-  'boing-cristal': '/resources/boing-fresa-354ml.jpg',
-  'coca-cristal': '',
-  'coca-plastico': '',
-  'fanta-cristal': '',
-  'fanta-plastico': '',
-  'mundet-cristal': '',
-  'agua-500': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
-  'cristal': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
-  'agua-1l': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
-
-
-
-
-  'mineral': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
-  'jugo': 'https://i5-mx.walmartimages.com/mg/gm/3pp/asr/bf3d796e-a1a4-4c4a-856d-fe58eff5f99a.5d7448acec4b8030be906ad8ca48d51d.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612',
-  'jamaica-500': '/resources/aguas-frescas.jpg',
-  'jamaica-1l': '/resources/aguas-frescas.jpg',
-  'horchata-500': '/resources/aguas-frescas.jpg',
-  'horchata-1l': '/resources/aguas-frescas.jpg',
-  'cafe': '/resources/cafe-negro.jpg',
-  'cafe-leche': '/resources/cafe-con-leche.jpg'
+const categoryImages: Record<string, { image?: string; kicker: string; description: string }> = {
+  'Antojitos': { image: '/resources/memelas.jpg', kicker: 'SABORES DE LA CASA', description: 'Los antojitos que hacen especial cada visita.' },
+  'Empanadas': { image: '/resources/empanadas.jpg', kicker: 'RECIÉN PREPARADAS', description: 'Elige tu relleno favorito.' },
+  'Quesadillas': { image: '/resources/foto-quesadilla.jpg', kicker: 'A TU GUSTO', description: 'Una quesadilla, muchas formas de disfrutarla.' },
+  'Tortas': { image: '/resources/foto-torta.jpg', kicker: 'PARA UN ANTOJO COMPLETO', description: 'Elige tu combinación favorita.' },
+  'Tacos y tostadas de barbacoa': { image: '/resources/foto-tacos-barbacoa.jpg', kicker: 'ESPECIALIDAD', description: 'Barbacoa para disfrutar en tacos o tostadas.' },
+  'Postres': { image: '/resources/flan.jpg', kicker: 'UN TOQUE DULCE', description: 'El cierre perfecto para tu comida.' },
+  'Helados': { kicker: 'ALGO FRESCO', description: 'Elige tu sabor favorito.' },
+  'Bebidas': { image: '/resources/boing-fresa-354ml.jpg', kicker: 'PARA ACOMPAÑAR', description: 'Encuentra algo rico para tomar.' },
+  'Aguas naturales': { image: '/resources/aguas-frescas.jpg', kicker: 'FRESCAS Y NATURALES', description: 'Jamaica y horchata, en el tamaño que prefieras.' },
+  'Bebidas calientes': { image: '/resources/cafe-con-leche.jpg', kicker: 'UNA PAUSA CALIENTITA', description: 'Café para acompañar tu momento.' }
 };
-
-// Keep the curated, direct food-photo URLs above. Avoid random image services:
-// they can return unrelated dishes, rate-limit requests, or fail on mobile.
-const defaultProductImage = 'https://img0.didiglobal.com/static/soda_public/img_05c8bbc0315f9329efbc4efeec4a1ac7.jpg';
 const pageCategories = categories.filter(category => category !== 'Todos');
 function updatePageIndicator() {
   const current = activeCategory === 'Todos' ? 0 : pageCategories.indexOf(activeCategory) + 1;
@@ -249,24 +176,25 @@ function renderProducts() {
   const shown = activeCategory === 'Todos'
     ? menu
     : menu.filter(item => item.category === activeCategory);
-  const usedPhotoUrls = new Set<string>();
+  const feature = document.querySelector<HTMLElement>('#category-feature')!;
+  if (activeCategory === 'Todos') {
+    feature.innerHTML = '';
+    feature.hidden = true;
+  } else {
+    const visual = categoryImages[activeCategory];
+    feature.hidden = false;
+    feature.innerHTML = visual
+      ? `<div class="category-feature-image"><img src="${visual.image ?? ''}" alt="${activeCategory}" loading="lazy"></div>
+         <div class="category-feature-copy"><p class="eyebrow">${visual.kicker}</p><h3>${activeCategory}</h3><p>${visual.description}</p><span class="category-feature-count">${shown.length} opciones</span></div>`
+      : `<div class="category-feature-copy category-feature-copy-only"><p class="eyebrow">${visual?.kicker ?? 'HECHO AL MOMENTO'}</p><h3>${activeCategory}</h3><p>${visual?.description ?? 'Explora nuestras opciones.'}</p><span class="category-feature-count">${shown.length} opciones</span></div>`;
+  }
   document.querySelector<HTMLElement>('#products')!.innerHTML = shown
-    .map(item => {
-      const photoUrl = productImages[item.id];
-      const isUniquePhoto = Boolean(photoUrl && !usedPhotoUrls.has(photoUrl));
-      if (isUniquePhoto) usedPhotoUrls.add(photoUrl!);
-      return `
-    <article class="product-card">
-      <div class="product-photo-wrap ${isUniquePhoto ? '' : 'photo-pending'}">
-        ${isUniquePhoto
-          ? `<img class="product-photo" src="${photoUrl}" alt="Fotografía ilustrativa de ${item.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('photo-pending');this.nextElementSibling.textContent='FOTO PROPIA EN PREPARACIÓN';this.nextElementSibling.classList.add('photo-pending-label');this.remove()"><span class="photo-caption">FOTOGRAFÍA ILUSTRATIVA</span>`
-          : `<span class="photo-pending-label">FOTO PROPIA<br><strong>EN PREPARACIÓN</strong></span>`}
-      </div>
-      <div class="product-top"><span class="product-number">${String(menu.indexOf(item) + 1).padStart(2, '0')}</span><span class="product-category">${item.category}</span></div>
-      <h3>${item.name}</h3><p class="product-note">${item.note ?? 'Preparado al momento.'}</p>
-      <div class="product-bottom"><strong>${money(item.price)}</strong><button type="button" class="add-button" data-add="${item.id}" aria-label="Agregar ${item.name}">＋ <span>Agregar</span></button></div>
-    </article>`;
-    })
+    .map(item => `
+      <article class="product-card">
+        <div class="product-top"><span class="product-number">${String(menu.indexOf(item) + 1).padStart(2, '0')}</span><span class="product-category">${item.category}</span></div>
+        <div class="product-info"><h3>${item.name}</h3><p class="product-note">${item.note ?? 'Preparado al momento.'}</p></div>
+        <div class="product-bottom"><strong>${money(item.price)}</strong><button type="button" class="add-button" data-add="${item.id}" aria-label="Agregar ${item.name}">＋ <span>Agregar</span></button></div>
+      </article>`)
     .join('');
   updatePageIndicator();
 }
