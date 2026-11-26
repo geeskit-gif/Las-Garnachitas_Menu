@@ -106,7 +106,7 @@ app.innerHTML = `
   <div class="demo-banner"><span class="demo-dot"></span><div><strong>MENÚ ACTUALIZADO</strong><small>Arma tu pedido y envíalo directamente por WhatsApp.</small></div></div>
   <nav class="category-nav" id="categories" aria-label="Categorías del menú"></nav>
   <main class="layout" id="menu">
-    <section class="menu-area"><div class="section-heading"><div><p class="eyebrow">ELIGE TUS FAVORITOS</p><h2>Menú <span>digital</span></h2></div><span class="menu-count">PARA LLEVAR</span></div><div class="page-controls"><button type="button" id="page-prev" aria-label="Página anterior">‹</button><span id="page-indicator">01 / 09</span><button type="button" id="page-next" aria-label="Página siguiente">›</button></div><div class="category-feature" id="category-feature" hidden></div><div class="product-grid" id="products"></div></section>
+    <section class="menu-area"><div class="section-heading"><div><p class="eyebrow">ELIGE TUS FAVORITOS</p><h2>Menú <span>digital</span></h2></div><span class="menu-count">PARA LLEVAR</span></div><div class="page-controls"><button type="button" id="page-prev" aria-label="Página anterior">‹</button><span id="page-indicator">01 / 09</span><button type="button" id="page-next" aria-label="Página siguiente">›</button></div><div class="page-stage" id="page-stage"><div class="category-feature" id="category-feature" hidden></div><div class="product-grid" id="products"></div></div></section>
     <aside class="cart-panel" id="pedido">
       <div class="cart-head"><div><p class="eyebrow">TU PEDIDO</p><h2>Resumen</h2></div><span class="cart-count" id="cart-count">0</span></div>
       <div id="cart-items" class="cart-items"><div class="empty-cart"><span>＋</span><strong>Tu pedido empieza aquí</strong><p>Agrega productos del menú para calcular el total.</p></div></div>
@@ -146,6 +146,25 @@ const categoryImages: Record<string, { image?: string; kicker: string; descripti
   'Aguas naturales': { image: '/resources/aguas-frescas.jpg', kicker: 'FRESCAS Y NATURALES', description: 'Jamaica y horchata, en el tamaño que prefieras.' },
   'Bebidas calientes': { image: '/resources/cafe-con-leche.jpg', kicker: 'UNA PAUSA CALIENTITA', description: 'Café para acompañar tu momento.' }
 };
+const productImages: Record<string, string> = {
+  'tostadas': '/resources/foto-tostadas.jpg',
+  'garnachas': '/resources/foto-garnachas.jpg',
+  'tacos-dorados': '/resources/tacos-dorados.jpg',
+  'dobladas': '/resources/dobladas.jpg',
+  'enchiladas': '/resources/foto-enchiladas.jpg',
+  'platanos': '/resources/platanos-fritos.jpg',
+  'memelas': '/resources/memelas.jpg',
+  'emp-picadillo': '/resources/empanadas.jpg',
+  'ques-chicharron': '/resources/foto-quesadilla.jpg',
+  'torta-asada': '/resources/foto-torta.jpg',
+  'tacos-barbacoa': '/resources/foto-tacos-barbacoa.jpg',
+  'flan-vaso': '/resources/flan.jpg',
+  'gelatina-mosaico': '/resources/gelatina-mosaico.jpg',
+  'boing-cajita': '/resources/boing-fresa-354ml.jpg',
+  'jamaica-500': '/resources/aguas-frescas.jpg',
+  'cafe': '/resources/cafe-negro.jpg',
+  'cafe-leche': '/resources/cafe-con-leche.jpg'
+};
 const pageCategories = categories.filter(category => category !== 'Todos');
 function updatePageIndicator() {
   const current = activeCategory === 'Todos' ? 0 : pageCategories.indexOf(activeCategory) + 1;
@@ -155,7 +174,7 @@ function updatePageIndicator() {
   document.querySelector<HTMLButtonElement>('#page-next')!.disabled = current === pageCategories.length;
 }
 function turnToCategory(category: string) {
-  const grid = document.querySelector<HTMLElement>('#products')!;
+  const grid = document.querySelector<HTMLElement>('#page-stage')!;
   const currentIndex = activeCategory === 'Todos' ? -1 : pageCategories.indexOf(activeCategory);
   const nextIndex = category === 'Todos' ? -1 : pageCategories.indexOf(category);
   const direction = nextIndex >= currentIndex ? 'forward' : 'backward';
@@ -191,6 +210,7 @@ function renderProducts() {
   document.querySelector<HTMLElement>('#products')!.innerHTML = shown
     .map(item => `
       <article class="product-card">
+        ${productImages[item.id] ? `<div class="product-photo-wrap"><img class="product-photo" src="${productImages[item.id]}" alt="${item.name}" loading="lazy"></div>` : ''}
         <div class="product-top"><span class="product-number">${String(menu.indexOf(item) + 1).padStart(2, '0')}</span><span class="product-category">${item.category}</span></div>
         <div class="product-info"><h3>${item.name}</h3><p class="product-note">${item.note ?? 'Preparado al momento.'}</p></div>
         <div class="product-bottom"><strong>${money(item.price)}</strong><button type="button" class="add-button" data-add="${item.id}" aria-label="Agregar ${item.name}">＋ <span>Agregar</span></button></div>
@@ -272,10 +292,10 @@ document.querySelector<HTMLButtonElement>('#page-next')!.addEventListener('click
   turnToCategory(current >= pageCategories.length - 1 ? 'Todos' : pageCategories[current + 1]);
 });
 let swipeStartX = 0;
-document.querySelector<HTMLElement>('#products')!.addEventListener('touchstart', event => {
+document.querySelector<HTMLElement>('#page-stage')!.addEventListener('touchstart', event => {
   swipeStartX = event.changedTouches[0].screenX;
 }, { passive: true });
-document.querySelector<HTMLElement>('#products')!.addEventListener('touchend', event => {
+document.querySelector<HTMLElement>('#page-stage')!.addEventListener('touchend', event => {
   const delta = event.changedTouches[0].screenX - swipeStartX;
   if (Math.abs(delta) < 65) return;
   const current = activeCategory === 'Todos' ? -1 : pageCategories.indexOf(activeCategory);
