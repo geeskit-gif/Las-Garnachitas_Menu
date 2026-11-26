@@ -137,7 +137,7 @@ const categoryImages: Record<string, { image?: string; kicker: string; descripti
   'Quesadillas': { image: '/resources/foto-quesadilla.jpg', kicker: 'A TU GUSTO', description: 'Una quesadilla, muchas formas de disfrutarla.' },
   'Tortas': { image: '/resources/foto-torta.jpg', kicker: 'PARA UN ANTOJO COMPLETO', description: 'Elige tu combinación favorita.' },
   'Postres': { image: '/resources/flan.jpg', kicker: 'UN TOQUE DULCE', description: 'El cierre perfecto para tu comida.' },
-  'Helados': { kicker: 'ALGO FRESCO', description: 'Elige tu sabor favorito.' },
+  'Helados': { image: '/resources/bolis-helados.jpg', kicker: 'ALGO FRESCO', description: 'Elige tu sabor favorito.' },
   'Bebidas': { image: '/resources/boing-fresa-354ml.jpg', kicker: 'PARA ACOMPAÑAR', description: 'Encuentra algo rico para tomar.' },
   'Aguas naturales': { image: '/resources/aguas-frescas.jpg', kicker: 'FRESCAS Y NATURALES', description: 'Jamaica y horchata, en el tamaño que prefieras.' },
   'Bebidas calientes': { image: '/resources/cafe-con-leche.jpg', kicker: 'UNA PAUSA CALIENTITA', description: 'Café para acompañar tu momento.' }
