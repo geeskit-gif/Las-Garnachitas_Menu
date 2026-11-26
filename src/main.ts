@@ -138,21 +138,21 @@ const productImages: Record<string, string> = {
   // Antojitos: cada tarjeta usa un primer plano del platillo que nombra.
   'tostadas': '/resources/foto-tostadas.jpg',
   'garnachas': '/resources/foto-garnachas.jpg',
-  'tacos-dorados': 'https://www.thedailymeal.com/img/gallery/tacos-dorados-are-the-perfect-way-to-spice-up-your-next-taco-night/l-intro-1673097822.jpg',
-  'dobladas': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
+  'tacos-dorados': '/resources/tacos-dorados.jpg',
+  'dobladas': '/resources/dobladas.jpg',
   'enchiladas': '/resources/foto-enchiladas.jpg',
-  'platanos': 'https://img0.didiglobal.com/static/soda_public/img_37c37b42b58c865e60b0dd807a40f729.png',
+  'platanos': '/resources/platanos-fritos.jpg',
   'huarache': 'https://cdn7.kiwilimon.com/recetaimagen/37040/640x640/46480.jpg.jpg',
   'huarache-mixto': 'https://cdn7.kiwilimon.com/recetaimagen/37040/640x640/46480.jpg.jpg',
-  'memelas': 'https://cdn7.kiwilimon.com/recetaimagen/37040/640x640/46480.jpg.jpg',
+  'memelas': '/resources/memelas.jpg',
 
   // Empanadas, quesadillas y tortas.
-  'emp-picadillo': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
-  'emp-quesillo': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
-  'emp-pollo': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
-  'emp-deshebrada': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
-  'emp-tinga-pollo': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
-  'emp-tinga-res': 'https://static.spotapps.co/spots/3d/32004eda0a4f7697835e69dcfe2620/full',
+  'emp-picadillo': '/resources/empanadas.jpg',
+  'emp-quesillo': '/resources/empanadas.jpg',
+  'emp-pollo': '/resources/empanadas.jpg',
+  'emp-deshebrada': '/resources/empanadas.jpg',
+  'emp-tinga-pollo': '/resources/empanadas.jpg',
+  'emp-tinga-res': '/resources/empanadas.jpg',
   'ques-chicharron': '/resources/foto-quesadilla.jpg',
   'ques-barbacoa': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
   'ques-tinga-res': 'https://img0.didiglobal.com/static/soda_public/do1_geACSAyaNJMknGcL8Q5I',
@@ -178,13 +178,13 @@ const productImages: Record<string, string> = {
   'tostadas-barbacoa': 'https://static.wixstatic.com/media/72849d_68fb19a627394701a6f4d6bcd6c917e4~mv2.jpg/v1/fit/w_500%2Ch_500%2Cq_90/file.jpg',
 
   // Postres con fotografía propia por tipo.
-  'flan-vaso': 'https://www.hola.com/horizon/original_aspect_ratio/0ce5984b3bdd-detalle-faln.jpg',
+  'flan-vaso': '/resources/flan.jpg',
   'gelatinas': 'https://1.bp.blogspot.com/-UXI3Eyt04ZY/T-im6GXIOWI/AAAAAAAAC9U/V2lYHPwY7MU/s1600/fantasia-de-colores.jpg',
   'budin': 'https://food.cld.sndimg.com/image/upload/w_2400/v1/fn_core_images/food/plus/fullset/2021/04/13/0/FNKLIve_Santos-Loo_Budin-de-Pan-con-Caramelo-2_s4x3.jpg',
   'pay-queso': 'https://cdn.apartmenttherapy.info/image/upload/f_jpg%2Cq_auto%3Aeco%2Cc_fill%2Cg_auto%2Cw_1500%2Car_1%3A1/k%2Frecipes%2F2023%2F2023-12-pay-de-queso%2Fpay-de-queso-5',
-  'flan-napolitano': 'https://www.hola.com/horizon/original_aspect_ratio/0ce5984b3bdd-detalle-faln.jpg',
+  'flan-napolitano': '/resources/flan.jpg',
   'cheesecake-oreo': 'https://img0.didiglobal.com/static/soda_public/img_9e1dd3bc34a6d130492bc95725a77969.jpg',
-  'gelatina-mosaico': 'https://cdn.apartmenttherapy.info/image/upload/v1779999185/tk/photo/2026/05-2026/2026-05-mosaic-jello-squares/mosaic-jello-squares-445.jpg',
+  'gelatina-mosaico': '/resources/gelatina-mosaico.jpg',
   'chocoflan': 'https://i.pinimg.com/originals/9c/3a/bd/9c3abd37b89589e7909a1390adc9f8f1.jpg',
 
   // Helados y bebidas.
@@ -193,7 +193,7 @@ const productImages: Record<string, string> = {
   'helado-cacahuate': 'https://img.mesa247.pe/archivos/platos/lart-helado-artesanal/peanut-caramel.jpg',
   'boing-cajita': 'https://i5-mx.walmartimages.com/mg/gm/3pp/asr/bf3d796e-a1a4-4c4a-856d-fe58eff5f99a.5d7448acec4b8030be906ad8ca48d51d.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612',
   // Las siete presentaciones de refrescos esperan sus fotografías individuales finales.
-  'boing-cristal': '',
+  'boing-cristal': '/resources/boing-fresa-354ml.jpg',
   'coca-cristal': '',
   'coca-plastico': '',
   'fanta-cristal': '',
@@ -208,12 +208,12 @@ const productImages: Record<string, string> = {
 
   'mineral': 'https://i.blogs.es/1b04fd/35489597822_e7640272b4_k/450_1000.jpg',
   'jugo': 'https://i5-mx.walmartimages.com/mg/gm/3pp/asr/bf3d796e-a1a4-4c4a-856d-fe58eff5f99a.5d7448acec4b8030be906ad8ca48d51d.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612',
-  'jamaica-500': 'https://static.wixstatic.com/media/ee509a_011443789c7c4b48aa170cc24cf87e16~mv2.jpg/v1/fill/w_716%2Ch_660%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/ee509a_011443789c7c4b48aa170cc24cf87e16~mv2.jpg',
-  'jamaica-1l': 'https://static.wixstatic.com/media/ee509a_011443789c7c4b48aa170cc24cf87e16~mv2.jpg/v1/fill/w_716%2Ch_660%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/ee509a_011443789c7c4b48aa170cc24cf87e16~mv2.jpg',
-  'horchata-500': 'https://static.wixstatic.com/media/11edfd_15537c06b6334dd4b3404953fa3dcd0c~mv2.jpg/v1/fill/w_580%2Ch_420%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/11edfd_15537c06b6334dd4b3404953fa3dcd0c~mv2.jpg',
-  'horchata-1l': 'https://static.wixstatic.com/media/11edfd_15537c06b6334dd4b3404953fa3dcd0c~mv2.jpg/v1/fill/w_580%2Ch_420%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/11edfd_15537c06b6334dd4b3404953fa3dcd0c~mv2.jpg',
-  'cafe': 'https://www.gastrolabweb.com/u/fotografias/m/2025/9/10/f638x638-82552_140719_5050.jpg',
-  'cafe-leche': 'https://www.gastrolabweb.com/u/fotografias/m/2025/9/10/f638x638-82552_140719_5050.jpg'
+  'jamaica-500': '/resources/aguas-frescas.jpg',
+  'jamaica-1l': '/resources/aguas-frescas.jpg',
+  'horchata-500': '/resources/aguas-frescas.jpg',
+  'horchata-1l': '/resources/aguas-frescas.jpg',
+  'cafe': '/resources/cafe-negro.jpg',
+  'cafe-leche': '/resources/cafe-con-leche.jpg'
 };
 
 // Keep the curated, direct food-photo URLs above. Avoid random image services:
